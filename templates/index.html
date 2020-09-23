@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Grader
+{% endblock %}
+
+{% block main %}
+    <h1>Your grades</h1>
+    <h4>Choose a trimester to see your grades!</h4>
+    <form action="/" method="post">
+      <select name="trimester" class="form-control">
+        <option value="" disabled selected>Trimester</option>
+        <option value="First">1st Trimester</option>
+        <option value="Second">2nd Trimester</option>
+        <option value="Third">3rd Trimester</option>
+      </select>
+      <button class=" btn btn-primary" type="submit">Go</button>
+    </form>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block title %} Grades {% endblock %}
+
+{% block main %}
+    {% if not index %}
+        <h4>Looks like you still don't have any grades for this trimester!</h4>
+
+    {% else %}
+        <h4>Your {{ trimester }} Trimester grades:</h4>
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col"></th>
+              <th scope="col">Test</th>
+              <th scope="col">CG 1</th>
+              <th scope="col">CG 2</th>
+              <th scope="col">CG 3</th>
+              <th scope="col">CG 4</th>
+              <th scope="col">CG 5</th>
+              <th scope="col">Average</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for row in index %}
+              <tr>
+                <th scope="row">{{ row.subject }}</th>
+                <td>{% if row.test %} {{ row.test }} <br> {{ row.desct }} {% endif %}</td>
+                <td>{% if row.cg1 %} {{ row.cg1 }} <br> {{ row.desc1 }} {% endif %}</td>
+                <td>{% if row.cg2 %} {{ row.cg2 }} <br> {{ row.desc2 }} {% endif %}</td>
+                <td>{% if row.cg3 %} {{ row.cg3 }} <br> {{ row.desc3 }} {% endif %}</td>
+                <td>{% if row.cg4 %} {{ row.cg4 }} <br> {{ row.desc4 }} {% endif %}</td>
+                <td>{% if row.cg5 %} {{ row.cg5 }} <br> {{ row.desc5 }} {% endif %}</td>
+                <td>{{ row.average }} <br> ({{ row.approx }})</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+    {% endif %}
+{% endblock %}

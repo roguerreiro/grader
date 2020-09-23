@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block title %} Calculator {% endblock %}
+
+{% block main %}
+    {% if grade <= 0 %}
+        <h4>Wow, you don't even need this grade to achieve this average! You should try a larger value!</h4>
+
+    {% elif grade > 10 %}
+        <h4>Too bad, looks like you can't achieve this average with your current grades...</h4>
+
+    {% else %}
+        <h4>To achieve this average, you need to score at least {{ grade }} on this {{ evaluation }}.</h4>
+
+    {% endif %}
+
+{% endblock %}
